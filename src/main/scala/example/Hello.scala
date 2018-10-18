@@ -23,6 +23,16 @@ object Hello extends Greeting with App {
   println(t3._2)
 
   lazy val lazyX = {println("lazy int val");num + 1}
+
+  var x = 1
+  var result = if(x == 0) {
+    println("x == 0")
+  } else if (x == 1) {
+    println("x == 1")
+  } else {
+    println("x else")
+  }
+
 }
 
 trait Greeting {
