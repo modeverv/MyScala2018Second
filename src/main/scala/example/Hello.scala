@@ -33,6 +33,11 @@ object Hello extends Greeting with App {
     println("x else")
   }
 
+  val listItems = List("Scala","Java","Ruby")
+  for(item <- listItems) println("item = " + item)
+  for(item <- listItems if item.length > 4) println("item = " + item)
+  val resultList = for(item <- listItems) yield "I use " + item
+  println(resultList)
 }
 
 trait Greeting {
