@@ -58,8 +58,14 @@ object Hello extends Greeting with App {
   p(f(1,2))
   p(getFunc("hoge")(2,3))
 
-def showMessage(args: String*) = for(arg <- args) println(arg)
+  def showMessage(args: String*) = for(arg <- args) println(arg)
   showMessage("aaa","bbb","ccc")
+  // 教科書どおりに動かぬ。。いらんか。。
+  // def showM2(args: _*) = for(arg <- args) println(arg)
+  // showM2(Array("xxxx","yyyy"))
+  def showM3(a:String = "hello") = println(a)
+  showM3()
+  showM3("日本語の問題")
 }
 
 trait Greeting {
