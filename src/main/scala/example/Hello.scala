@@ -65,7 +65,34 @@ object Hello extends Greeting with App {
   // showM2(Array("xxxx","yyyy"))
   def showM3(a:String = "hello") = println(a)
   showM3()
-  showM3("日本語の問題")
+  showM3("fefdsafewafwdafwafea")
+  var func20181127:(Int,Int) => Int = (x:Int,y:Int) => x+ y
+  var x20181127 = func20181127(1,2)
+  println(x20181127)
+  def add1127(x:Int, y:Int):Int = x + y
+  var f1127_1 = add1127 _
+  var f1127_2 = f1127_1(_:Int,5)
+  println(f1127_2(3))
+
+  // クロージャ
+  def counter() = {
+    var count = 0
+    () => {
+      count += 1
+      count
+    }
+  }
+
+  var c1127_3 = counter()
+  println(c1127_3())
+  println(c1127_3())
+  println(c1127_3())
+  println(c1127_3())
+  println(c1127_3())
+
+  def sum(a:Int,b:Int,c:Int) = a + b + c
+  var sumObj = sum _
+
 }
 
 trait Greeting {
