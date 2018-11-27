@@ -57,6 +57,9 @@ object Hello extends Greeting with App {
   var f = getFunc("results") // 関数をもらう
   p(f(1,2))
   p(getFunc("hoge")(2,3))
+
+def showMessage(args: String*) = for(arg <- args) println(arg)
+  showMessage("aaa","bbb","ccc")
 }
 
 trait Greeting {
