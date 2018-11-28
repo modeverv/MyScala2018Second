@@ -122,8 +122,10 @@ object Hello extends Greeting with App {
 trait Greeting {
   lazy val greeting: String = "hello"
 }
-class Programamer {
-  var language = "Scala"
+class Programamer(var language: String = "Scala") {
+  println("here is initialize code " + language)
+
+  // var language = "Scala"
   def coding() = println("I'm coding with " + language)
 }
 
