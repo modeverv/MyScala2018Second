@@ -92,10 +92,38 @@ object Hello extends Greeting with App {
 
   def sum(a:Int,b:Int,c:Int) = a + b + c
   var sumObj = sum _
-
+  // 遅延評価
+  var c20181128 = 0
+  def myWhile(conditional: => Boolean)(f: => Unit) {
+    println("myWhile")
+    println(f)
+    println(c20181128)
+    println(c20181128 < 3)
+    if(conditional){
+      f
+      myWhile(conditional)(f)
+    }
+  }
+  var b201821129 = {
+    println("c20181128=" + c20181128)
+    Hello.c20181128 += 1
+    //c20181128 += 1
+    println("c20181128=" + c20181128)
+  }
+  // 無限ループになる。。。 スコープがわからぬ。
+  // Scalaコンソールでは行けたのだけれど
+  // myWhile(c20181128 < 3)(b201821129)
+  var pg = new Programamer
+  pg.coding()
+  pg.language = "Java"
+  pg.coding()
 }
 
 trait Greeting {
   lazy val greeting: String = "hello"
+}
+class Programamer {
+  var language = "Scala"
+  def coding() = println("I'm coding with " + language)
 }
 
