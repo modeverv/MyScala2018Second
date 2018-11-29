@@ -117,6 +117,22 @@ object Hello extends Greeting with App {
   pg.coding()
   pg.language = "Java"
   pg.coding()
+
+  // Option型
+  val m = Map("Scala" -> 1,"Java" -> 2)
+  println(m.get("Scala"))
+  println(m.get("Scala").get)
+  println(m.get("Ruby"))
+  println(m.get("Ruby").getOrElse("nothing"))
+
+  def testMatch(opt:Option[Int]) ={
+    opt match {
+        case Some(n) => println(n)
+        case None => println("Nonnnne")
+    }
+  }
+  testMatch(Some(10))
+  testMatch(None)
 }
 
 trait Greeting {
@@ -128,4 +144,20 @@ class Programamer(var language: String = "Scala") {
   // var language = "Scala"
   def coding() = println("I'm coding with " + language)
 }
+class P2(_language: String = "Scala") {
+  println("here is initialize code " + language)
+  require(_language != null) // 制約
+  val language = _language
+  def coding() = println("I'm coding with " + language)
+}
 
+class Sample {
+  def add(x:Int,y:Int) = x + y
+  def add(x:Double,y:Double) = x + y
+  def add(x:Int,y:Int,z:Int) = x + y + z
+}
+
+// シングルトンオプジェクト
+object SampleUtil {
+  def hello() = println("hellooooo")
+}
